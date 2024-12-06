@@ -5,10 +5,18 @@ package bridge.domain;
  */
 public class BridgeGame {
     private final BridgeMaker bridgeMaker;
-
+    private Bridge bridge;
+    private int moveCount;
+    private int totalTryCount;
 
     public BridgeGame() {
         this.bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+        this.moveCount = 0;
+        this.totalTryCount = 0;
+    }
+
+    public void generateBridge(int size) {
+        bridge = new Bridge(bridgeMaker.makeBridge(size));
     }
 
     /**
