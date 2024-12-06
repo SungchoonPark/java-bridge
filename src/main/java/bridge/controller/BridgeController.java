@@ -18,12 +18,24 @@ public class BridgeController {
     public void run() {
         int bridgeSize = readBridgeSize();
         bridgeService.generateBridge(bridgeSize);
+
+        readMoving();
     }
 
     private int readBridgeSize() {
         while(true) {
             try {
                 return inputView.readBridgeSize();
+            } catch (IllegalArgumentException e) {
+                outputView.printExceptionMessage(e.getMessage());
+            }
+        }
+    }
+
+    private String readMoving() {
+        while(true) {
+            try {
+                return inputView.readMoving();
             } catch (IllegalArgumentException e) {
                 outputView.printExceptionMessage(e.getMessage());
             }
