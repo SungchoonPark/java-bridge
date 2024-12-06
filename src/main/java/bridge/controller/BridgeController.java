@@ -14,4 +14,18 @@ public class BridgeController {
         this.outputView = outputView;
         this.bridgeService = bridgeService;
     }
+
+    public void run() {
+        readBridgeSize();
+    }
+
+    private int readBridgeSize() {
+        while(true) {
+            try {
+                return inputView.readBridgeSize();
+            } catch (IllegalArgumentException e) {
+                outputView.printExceptionMessage(e.getMessage());
+            }
+        }
+    }
 }
