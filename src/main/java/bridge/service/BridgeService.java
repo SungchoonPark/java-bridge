@@ -8,4 +8,8 @@ public class BridgeService {
     public BridgeService() {
         this.bridgeGame = new BridgeGame();
     }
+
+    public void generateBridge(int bridgeSize) {
+        bridgeGame.generateBridge(bridgeSize);
+    }
 }

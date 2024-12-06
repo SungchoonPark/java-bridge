@@ -16,7 +16,8 @@ public class BridgeController {
     }
 
     public void run() {
-        readBridgeSize();
+        int bridgeSize = readBridgeSize();
+        bridgeService.generateBridge(bridgeSize);
     }
 
     private int readBridgeSize() {
