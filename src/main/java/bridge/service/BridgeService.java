@@ -1,6 +1,7 @@
 package bridge.service;
 
 import bridge.domain.BridgeGame;
+import bridge.dto.MovingResultDto;
 
 public class BridgeService {
     private final BridgeGame bridgeGame;
@@ -11,5 +12,9 @@ public class BridgeService {
 
     public void generateBridge(int bridgeSize) {
         bridgeGame.generateBridge(bridgeSize);
+    }
+
+    public MovingResultDto moving(String movingCommand) {
+        return bridgeGame.move(movingCommand);
     }
 }

@@ -1,5 +1,6 @@
 package bridge.controller;
 
+import bridge.dto.MovingResultDto;
 import bridge.service.BridgeService;
 import bridge.view.InputView;
 import bridge.view.OutputView;
@@ -19,7 +20,15 @@ public class BridgeController {
         int bridgeSize = readBridgeSize();
         bridgeService.generateBridge(bridgeSize);
 
-        readMoving();
+        String movingCommand = readMoving();
+        MovingResultDto moving = bridgeService.moving(movingCommand);
+        moving.print();
+        //Todo: 겜 진행상황 보여주기
+
+        // Todo: 겜 실패했는지 성공했는지 따지기
+        // 실패 -> 재시작 또는 종료 물어보기
+        // 성공 -> readMoving 다시 ㄱㄱ
+
     }
 
     private int readBridgeSize() {

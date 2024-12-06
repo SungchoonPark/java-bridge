@@ -8,6 +8,7 @@ import camp.nextstep.edu.missionutils.Console;
  */
 public class InputView {
     private static final String START_MESSAGE = "다리 건너기 게임을 시작합니다.";
+    private static final String BRIDGE_MESSAGE = "\n다리의 길이를 입력해주세요.";
     private static final String MOVING_MESSAGE = "\n이동할 칸을 선택해주세요. (위: U, 아래: D)";
 
     /**
@@ -15,6 +16,7 @@ public class InputView {
      */
     public int readBridgeSize() {
         printStartMessage();
+        System.out.println(BRIDGE_MESSAGE);
         String bridgeSize = Console.readLine();
         checkInputIsEmpty(bridgeSize);
         checkBridgeSizeIsNum(bridgeSize);
