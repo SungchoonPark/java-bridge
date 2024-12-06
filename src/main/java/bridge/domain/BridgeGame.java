@@ -1,5 +1,6 @@
 package bridge.domain;
 
+import bridge.dto.FinalResultDto;
 import bridge.dto.MovingResultDto;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class BridgeGame {
     public BridgeGame() {
         this.bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         clientCommands = new ArrayList<>();
-        this.totalTryCount = 0;
+        this.totalTryCount = 1;
     }
 
     public void generateBridge(int size) {
@@ -40,5 +41,15 @@ public class BridgeGame {
      * 재시작을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
     public void retry() {
+        totalTryCount++;
+        clientCommands = new ArrayList<>();
+    }
+
+    public FinalResultDto makeGameResult() {
+        return new FinalResultDto(
+                    bridge.getMovingResult(clientCommands),
+                    totalTryCount,
+                    bridge.canMoving(clientCommands.get(clientCommands.size()-1), clientCommands.size()-1)
+                );
     }
 }

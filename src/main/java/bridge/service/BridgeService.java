@@ -1,6 +1,7 @@
 package bridge.service;
 
 import bridge.domain.BridgeGame;
+import bridge.dto.FinalResultDto;
 import bridge.dto.MovingResultDto;
 
 public class BridgeService {
@@ -16,5 +17,13 @@ public class BridgeService {
 
     public MovingResultDto moving(String movingCommand) {
         return bridgeGame.move(movingCommand);
+    }
+
+    public FinalResultDto getGameResult() {
+        return bridgeGame.makeGameResult();
+    }
+
+    public void retry() {
+        bridgeGame.retry();
     }
 }

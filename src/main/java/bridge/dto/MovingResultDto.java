@@ -5,14 +5,18 @@ import java.util.Queue;
 
 public class MovingResultDto {
     private List<MovingDto> movingResult;
+    private boolean isSuccess;
 
-    public MovingResultDto(List<MovingDto> movingResult) {
+    public MovingResultDto(List<MovingDto> movingResult, boolean isSuccess) {
         this.movingResult = movingResult;
+        this.isSuccess = isSuccess;
     }
 
-    public void print() {
-        for (MovingDto movingDto : movingResult) {
-            System.out.println(movingDto);
-        }
+    public List<MovingDto> getMovingResult() {
+        return movingResult;
+    }
+
+    public boolean getIsSuccess() {
+        return isSuccess;
     }
 }

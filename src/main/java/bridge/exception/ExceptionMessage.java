@@ -7,7 +7,8 @@ public enum ExceptionMessage {
     STR_BRIDGE_SIZE("다리 길이를 숫자로 입력해주세요"),
     INVALID_BRIDGE_SIZE("다리 길이는 3이상 20이하이어야 합니다."),
 
-    INVALID_MOVING_INPUT("U 또는 D로 입력해주세요.");
+    INVALID_MOVING_INPUT("U 또는 D로 입력해주세요."),
+    INVALID_RETRY_INPUT("U 또는 D로 입력해주세요.");
 
     private final String message;
 
